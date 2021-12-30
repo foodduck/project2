@@ -241,4 +241,74 @@ public class UsertbDAO {
 		
 		return usertb;
 	}
+	
+	public UsertbVO getFindQ(UsertbVO vo) {
+		UsertbVO usertb = null;
+		try {
+			conn = DBConn.getConnection();
+			String sql = "select * from Usertb where email =? and uname =? and u_id=? ";
+			stmt = conn.prepareStatement(sql);
+			stmt.setString(1,  vo.getEmail());
+			stmt.setString(2, vo.getUname());
+			stmt.setString(3, vo.getU_id());
+			rs = stmt.executeQuery();
+			usertb = new UsertbVO();
+			if (rs.next()) {
+				usertb = new UsertbVO();
+				usertb.setUsertbid(rs.getInt("usertbid"));
+				usertb.setQ(rs.getString("q"));
+				
+			} else {
+				System.out.println("회원정보가 없습니다.");
+			}
+		} catch (ClassNotFoundException e) {
+			System.out.println("드라이버 연결 오류");
+			e.printStackTrace();
+		} catch (SQLException e) {
+			System.out.println("SQL 구문 오류");
+			e.printStackTrace();
+		} catch (Exception e) {
+			System.out.println("기타 오류");
+			e.printStackTrace();
+		} finally {
+			DBConn.close(rs, stmt, conn);
+		}
+		
+		return usertb;
+	}
+	
+	public UsertbVO getFindPw(UsertbVO vo) {
+		UsertbVO usertb = null;
+		try {
+			conn = DBConn.getConnection();
+			String sql = "select * from Usertb where usertbid=? and question=? and answer=? ";
+			stmt = conn.prepareStatement(sql);
+			stmt.setInt(1,  vo.getUsertbid());
+			stmt.setString(2, vo.getQ());
+			stmt.setString(3, vo.getA());
+			rs = stmt.executeQuery();
+			usertb = new UsertbVO();
+			if (rs.next()) {
+				usertb = new UsertbVO();
+				usertb.setUsertbid(rs.getInt("usertbid"));
+				usertb.setPw(rs.getString("pw"));
+				
+			} else {
+				System.out.println("회원정보가 없습니다.");
+			}
+		} catch (ClassNotFoundException e) {
+			System.out.println("드라이버 연결 오류");
+			e.printStackTrace();
+		} catch (SQLException e) {
+			System.out.println("SQL 구문 오류");
+			e.printStackTrace();
+		} catch (Exception e) {
+			System.out.println("기타 오류");
+			e.printStackTrace();
+		} finally {
+			DBConn.close(rs, stmt, conn);
+		}
+		
+		return usertb;
+	}
 }

@@ -13,8 +13,8 @@ import com.shop.biz.UsertbDAO;
 import com.shop.model.UsertbVO;
 
 
-@WebServlet("/GetFindIdCtrl")
-public class GetFindIdCtrl extends HttpServlet {
+@WebServlet("/GetFindQCtrl")
+public class GetFindQCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -22,20 +22,22 @@ public class GetFindIdCtrl extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String email = request.getParameter("email");
 		String uname = request.getParameter("uname");
+		String u_id = request.getParameter("u_id");
 		
 		UsertbVO vo = new UsertbVO();
 		vo.setEmail(email);
 		vo.setUname(uname);
+		vo.setU_id(u_id);
 		
 		UsertbDAO dao = new UsertbDAO();
-		UsertbVO usertb = dao.getFindId(vo);
+		UsertbVO usertb = dao.getFindQ(vo);
 		
 		if(usertb != null) {
 			request.setAttribute("usertb", usertb);
-			RequestDispatcher view = request.getRequestDispatcher("./find/getFindId.jsp");
+			RequestDispatcher view = request.getRequestDispatcher("./find/getFindPw.jsp");
 			view.forward(request, response);
 		} else {
-			response.sendRedirect("./find/findId.jsp");
+			response.sendRedirect("./find/findQ.jsp");
 		}
 	}
 

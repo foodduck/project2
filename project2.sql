@@ -56,27 +56,27 @@ nat varchar2(500) not null, genre varchar2(500) not null,
 price int not null, img varchar2(500), cnt int default 0);
 
 /* 국내 소설 */
-insert into prolist values(prolist_seq.nextval, 'A001', '불편한 편의점', '국내', '소설', '18900', './img/a001.jpg', 40)
-insert into prolist values(prolist_seq.nextval, 'A002', '한밤의 도서관', '국내', '소설', '18900', './img/a002.jpg', 30)
-insert into prolist values(prolist_seq.nextval, 'A003', '달리구트 꿈 백화점 1', '국내', '소설', '18900', './img/a003.jpg', 43)
+insert into prolist values(prolist_seq.nextval, 'A001', '불편한 편의점', '국내', '소설', '18900', './img/a001.jpg', 40);
+insert into prolist values(prolist_seq.nextval, 'A002', '한밤의 도서관', '국내', '소설', '18900', './img/a002.jpg', 30);
+insert into prolist values(prolist_seq.nextval, 'A003', '달리구트 꿈 백화점 1', '국내', '소설', '18900', './img/a003.jpg', 43);
 insert into prolist values(prolist_seq.nextval, 'A004', '달리구트 꿈 백화점 2', '국내', '소설', '18900', './img/a004.jpg', 67)
 
 /* 해외 소설 */
-insert into prolist values(prolist_seq.nextval, 'B001', 'Mango Street', '해외', '소설', '15900', './img/b001.jpg',14)
-insert into prolist values(prolist_seq.nextval, 'B002', 'MidNight Library', '해외', '소설', '19900', './img/b002.jpg',39)
-insert into prolist values(prolist_seq.nextval, 'B003', 'Wonder', '해외', '소설', '15900', './img/b003.jpg',5)
+insert into prolist values(prolist_seq.nextval, 'B001', 'Mango Street', '해외', '소설', '15900', './img/b001.jpg',14);
+insert into prolist values(prolist_seq.nextval, 'B002', 'MidNight Library', '해외', '소설', '19900', './img/b002.jpg',39);
+insert into prolist values(prolist_seq.nextval, 'B003', 'Wonder', '해외', '소설', '15900', './img/b003.jpg',5);
 insert into prolist values(prolist_seq.nextval, 'B004', 'Morrie', '해외', '소설', '15900', './img/b004.jpg',56)
 
 /* 해외 아동 */
-insert into prolist values(prolist_seq.nextval, 'C001', 'Bricks Reading 50', '해외', '아동', '8900', './img/c001.jpg',10)
-insert into prolist values(prolist_seq.nextval, 'C002', 'Smart Phonics 1', '해외', '아동', '11900', './img/c002.jpg',23)
-insert into prolist values(prolist_seq.nextval, 'C003', 'Smart Phonics 1', '해외', '아동', '7900', './img/c003.jpg',31)
+insert into prolist values(prolist_seq.nextval, 'C001', 'Bricks Reading 50', '해외', '아동', '8900', './img/c001.jpg',10);
+insert into prolist values(prolist_seq.nextval, 'C002', 'Smart Phonics 1', '해외', '아동', '11900', './img/c002.jpg',23);
+insert into prolist values(prolist_seq.nextval, 'C003', 'Smart Phonics 1', '해외', '아동', '7900', './img/c003.jpg',31);
 insert into prolist values(prolist_seq.nextval, 'C004', 'Bricks Reading 150', '해외', '아동', '10900', './img/c004.jpg',22)
 
 /* 국내 아동 */
-insert into prolist values(prolist_seq.nextval, 'D001', '전래동화 50선', '국내', '아동', '12900', './img/d001.jpg',11)
-insert into prolist values(prolist_seq.nextval, 'D002', '엔칸토 마법의 세계', '국내', '아동', '13900', './img/d002.jpg',29)
-insert into prolist values(prolist_seq.nextval, 'D003', '소울', '국내',  '아동', '13900', './img/d003.jpg',22)
+insert into prolist values(prolist_seq.nextval, 'D001', '전래동화 50선', '국내', '아동', '12900', './img/d001.jpg',11);
+insert into prolist values(prolist_seq.nextval, 'D002', '엔칸토 마법의 세계', '국내', '아동', '13900', './img/d002.jpg',29);
+insert into prolist values(prolist_seq.nextval, 'D003', '소울', '국내',  '아동', '13900', './img/d003.jpg',22);
 insert into prolist values(prolist_seq.nextval, 'D004', '읽기 떼는 동화', '국내', '아동', '8900', './img/d004.jpg',56)
 
 

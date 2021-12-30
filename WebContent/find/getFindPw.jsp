@@ -13,7 +13,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ID 찾기(결과)</title>
+<title>Pw 찾기(2/2)</title>
 <!-- 합쳐지고 최소화된 최신 CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
@@ -26,20 +26,20 @@
 	<%@ include file="../header.jsp"%>
 	
 <div class = "container">
-	<h2>ID 찾기 결과</h2>
+	<h2>질문에 따른 답을 입력하세요</h2>
 <%
 	if (usertb!=null) {
 %>
 	<table class = "table">
 		<tr>
-			<th class="item1">당신의 ID는</th>
-			<td class="item1"><input type="text" name="u_id" value="${usertb.getU_id() }" readonly ></td>
+			<th class="item1">회원님의 비밀번호는: </th>
+			<td class="item1"><input type="text" name="pw" value="${usertb.getPw() }" readonly ></td>
 		</tr>
 	</table>
 <%
 	} else {
 %>
-	<p class="">이메일 혹은 이름이 잘못되었습니다.</p>
+	<p class="">이메일 혹은 이름, 아이디가 잘못되었습니다.</p>
 <%
 	}
 %>
