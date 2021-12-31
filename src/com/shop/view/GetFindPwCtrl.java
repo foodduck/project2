@@ -12,26 +12,32 @@ import javax.servlet.http.HttpServletResponse;
 import com.shop.biz.UsertbDAO;
 import com.shop.model.UsertbVO;
 
-
 @WebServlet("/GetFindPwCtrl")
 public class GetFindPwCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html; charset=UTF-8");
+		request.setCharacterEncoding("UTF-8");
+		
 		int usertbid = Integer.parseInt(request.getParameter("usertbid"));
+		String q = request.getParameter("q");
+		String a = request.getParameter("a");
 		
 		UsertbVO vo = new UsertbVO();
 		vo.setUsertbid(usertbid);
+		vo.setA(a);
+		vo.setQ(q);
 		
 		UsertbDAO dao = new UsertbDAO();
-		UsertbVO usertb = dao.getUsertb(vo);
-		//UsertbDAO에서 getUsertb 메서드를 만든다.
+		UsertbVO usertb = dao.getFindPw(vo);
+		
 		if(usertb != null) {
 			request.setAttribute("usertb", usertb);
-			RequestDispatcher view = request.getRequestDispatcher("/find/getFindPw.jsp");
+			RequestDispatcher view = request.getRequestDispatcher("./find/getFindPw.jsp");
 			view.forward(request, response);
 		} else {
-			response.sendRedirect("/find/findPw.jsp");
+			response.sendRedirect("./find/getFindQ.jsp");
 		}
 	}
 

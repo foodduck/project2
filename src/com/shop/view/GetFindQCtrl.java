@@ -34,7 +34,7 @@ public class GetFindQCtrl extends HttpServlet {
 		
 		if(usertb != null) {
 			request.setAttribute("usertb", usertb);
-			RequestDispatcher view = request.getRequestDispatcher("./find/getFindPw.jsp");
+			RequestDispatcher view = request.getRequestDispatcher("./find/getFindQ.jsp");
 			view.forward(request, response);
 		} else {
 			response.sendRedirect("./find/findQ.jsp");

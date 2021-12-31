@@ -146,15 +146,13 @@ public class UsertbDAO {
 		//ctrl에서 값을 준다
 		try {
 			conn = DBConn.getConnection();
-			String sql = "select * from Usertb where usertbid =? and pw =?";
+			String sql = "select * from usertb where u_id =? and pw =?";
 			stmt = conn.prepareStatement(sql);
-			stmt.setString(1,  vo.getU_id());
+			stmt.setString(1, vo.getU_id());
 			stmt.setString(2, vo.getPw());
 			rs = stmt.executeQuery();
-			tm = new UsertbVO();
 			if (rs.next()) {
-				
-				System.out.println("rs통과");
+				tm = new UsertbVO();
 				
 				tm.setUsertbid(rs.getInt("usertbid"));
 				tm.setU_id(rs.getString("u_id"));
@@ -191,7 +189,7 @@ public class UsertbDAO {
 		int cnt = 0;
 		try {
 			conn = DBConn.getConnection();
-			String sql = "insert into usertb values (usertb_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?, 0, sysdate, 0)";
+			String sql = "insert into usertb values (usertb_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?, sysdate, 0)";
 			stmt = conn.prepareStatement(sql);
 			stmt.setString(1, vo.getU_id());
 			stmt.setString(2, vo.getPw());
@@ -311,4 +309,6 @@ public class UsertbDAO {
 		
 		return usertb;
 	}
+
+	
 }

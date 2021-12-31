@@ -3,7 +3,7 @@
  <header class="hd fix">
         <div class="hd_wrap">
                <div class="logo">
-                <a href="index.jsp" class="logo"><img src="./img/logo_kyobo.png" alt="교보문고"></a>
+                <a href="../index.jsp" class="logo"><img src="../img/logo_kyobo.png" alt="교보문고"></a>
                </div>
            <nav class="gnb">
                 <ul>
@@ -23,10 +23,10 @@
                     <li>
                         <a href="GetProlistListCtrl" class="dp1">도서목록</a>
                         <ul class="sub">
-                            <li><a href="GetChildProlistListCtrl">아동도서</a></li>
-                            <li><a href="GetNovelProlistListCtrl">소설</a></li>
-                            <li><a href="GetKorProlistListCtrl">국내도서</a></li>
-                            <li><a href="GetAbroadProlistListCtrl">해외도서</a></li>
+                            <li><a href="../GetChildProlistListCtrl">아동도서</a></li>
+                            <li><a href="../GetNovelProlistListCtrl">소설</a></li>
+                            <li><a href="../GetKorProlistListCtrl">국내도서</a></li>
+                            <li><a href="../GetAbroadProlistListCtrl">해외도서</a></li>
                             <li><a href=""></a></li>
                             <li><a href=""></a></li>
                             <li><a href=""></a></li>
@@ -34,7 +34,7 @@
                         
                     </li>
                     <li>
-                        <a href="GetChildProlistListCtrl" class="dp1">경제</a>
+                        <a href="../GetChildProlistListCtrl" class="dp1">경제</a>
                         <ul class="sub">
                             <li><a href=""></a></li>
                             <li><a href=""></a></li>

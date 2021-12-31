@@ -35,11 +35,12 @@
 			<td class="item1"><input type="text" name="q" value="${usertb.getQ() }" readonly ></td>
 		</tr>
 		<tr>
-			<th class="item1">질문에 대한 답을 입력하세요.</th>
-			<td class="item1"><input type="text" name="a" required ></td>
+			<th class="item2">질문에 대한 답을 입력하세요.</th>
+			<td class="item2"><input type="text" name="a" required ></td>
 		</tr>
 	</table>
-	<input type="submit" class ="btn btn-default" value="PW찾기"/>
+	<input type="hidden" name="usertbid" value="${usertb.getUsertbid() }" />
+	<input type="submit" class ="btn btn-default" value="PW찾기" />
 </form>	
 	<!-- 버튼 그룹 -->
 	<div class="btn-group">

@@ -23,8 +23,10 @@ public class LoginCtrl extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
+		
 		String u_id = request.getParameter("u_id");
 		String pw =request.getParameter("pw");
+		
 		UsertbVO vo = new UsertbVO();
 	
 		vo.setU_id(u_id);
@@ -36,7 +38,7 @@ public class LoginCtrl extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		if (tm!=null) {
-			session.setAttribute(u_id, tm.getU_id());
+			session.setAttribute("u_id", tm.getU_id());
 			session.setAttribute("uname", tm.getUname());
 			session.setAttribute("email", tm.getEmail());
 			session.setAttribute("add1", tm.getAdd1());
@@ -44,7 +46,7 @@ public class LoginCtrl extends HttpServlet {
 			session.setAttribute("cp", tm.getCp());
 			response.sendRedirect("index.jsp");
 		} else {
-			response.sendRedirect("GetProlistListCtrl");
+			response.sendRedirect("login.jsp");
 		}
 	}
 

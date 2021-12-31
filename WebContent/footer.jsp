@@ -2,10 +2,12 @@
     pageEncoding="UTF-8"%>
 <footer class="ft fix">
            <div class="ft_wrap">
+           	<div class="ft_line">
+           	
                <nav class="linkbar">
                    <ul>
                        <li><a href="">개인정보처리방침</a></li>
-                       <li><a href="">관광안내</a></li>
+                       <li><a href="">환불규정</a></li>
                        <li><a href="">이의제기</a></li>
                        <li><a href="">정보도용신고</a></li>
                    </ul>
@@ -16,6 +18,6 @@
                <div class="copyright">
                    <p>COPYRIGHT(C) <strong>KYOBO BOOK CENTRE</strong> ALL RIGHTS RESERVED.</p>
                 </div>
-               <div class="wa"><img src="./img/nav_sns.png" alt="sns아이콘"></div>
+            </div>
            </div>
        </footer>

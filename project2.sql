@@ -1,3 +1,7 @@
+/* tnb1, tnb2, head, header: 폴더 외부의 jsp 파일들이 사용한다.(join.jsp,login.jsp 등)
+ * tnb11, tnb12, head2, header2: 폴더 내부(find,board 내에 있는 jsp 파일)에서 사용한다.  */
+
+
 
 /*회원 테이블 및 시퀀스*/
 
