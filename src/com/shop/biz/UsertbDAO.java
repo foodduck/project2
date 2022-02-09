@@ -114,8 +114,9 @@ public class UsertbDAO {
 		int r=0;
 		try {
 			conn= DBConn.getConnection();
-			String sql = "update Usertb set u_id=? pw=? uname=? email=? q=? a? add1? add2=? cp=? where Usertbid=?";
-			stmt.getConnection().prepareStatement(sql);
+			String sql = "update Usertb set u_id=? pw=? uname=? email=? q=? a=? add1=? add2=? cp=? where Usertbid=?";
+			stmt=conn.prepareStatement(sql);
+			
 			stmt.setString(1, vo.getU_id());
 			stmt.setString(2, vo.getPw());
 			stmt.setString(3, vo.getUname());
@@ -135,10 +136,27 @@ public class UsertbDAO {
 			e.printStackTrace();
 		} catch(Exception e) {
 			System.out.println("기타 오류");
+			e.printStackTrace();
 		} finally {
 			DBConn.close(stmt, conn);
 		}
 		return r;
+	}
+	
+	public int deleteUsertb(UsertbVO vo) {
+		int num=0;
+		try {
+			conn = DBConn.getConnection();
+			String sql = "delete from usertb where usertbid=?";
+			stmt = conn.prepareStatement(sql);
+			stmt.setInt(1, vo.getUsertbid());
+			num = stmt.executeUpdate();
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBConn.close(stmt, conn);
+		}
+		return num;
 	}
 	
 	public UsertbVO loginUsertb(UsertbVO vo) {

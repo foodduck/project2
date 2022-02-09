@@ -32,7 +32,7 @@
 	<table class = "table">
 		<tr>
 			<th class="item1">가입시 입력하신 질문입니다.</th>
-			<td class="item1"><input type="text" name="q" value="${usertb.getQ() }" readonly ></td>
+			<td class="item1"><input type="text" name="q" value="${usertb.getQ() }"readonly ></td>
 		</tr>
 		<tr>
 			<th class="item2">질문에 대한 답을 입력하세요.</th>

@@ -1,11 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.shop.model.*" %>    
+<%@ page import="com.shop.controller.*" %>
+<%@ page import="com.shop.biz.*" %>
+<%@ page import="com.shop.view.*" %>
 <!DOCTYPE html>
 <html>
 <title>여기에 제목 입력</title>
 <head>
 <meta charset="UTF-8">
-	<%@ include file="head.jsp" %>
+	<%@ include file="../head.jsp" %>
 </head>
 <body>
 	<div class="wrap">
@@ -13,15 +17,15 @@
 		String u_id = (String) session.getAttribute("u_id");
 		if (u_id!=null) {
 %>
-			<%@ include file='tnb2.jsp'%>
+			<%@ include file='../tnb2.jsp'%>
 <%
 		} else {
 %>
-			<%@ include file='tnb1.jsp'%>
+			<%@ include file='../tnb1.jsp'%>
 <%
 		}
 %>
-		<%@include file='header.jsp' %>
+		<%@include file='../header.jsp' %>
 		 <div class="content fix">
            <figure class="vs">
                <ul class="img_box">
@@ -80,7 +84,7 @@
             	
             </div>    
         </div>
-		<%@include file='footer.jsp' %>
+		<%@include file='../footer.jsp' %>
 	</div>
 </body>
 </html>

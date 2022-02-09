@@ -11,17 +11,6 @@
 <meta charset="UTF-8">
 	<%@ include file="../head.jsp" %>
 </head>
-<style>
-	body, html { width: 100%; }
-    ul { list-style: none; }
-    a { text-decoration: none; }  
-    .wrap { width: 100%; }
-    proview {margin:5 }
-	.proview p {text-align:center }
-	.proview a {display:inline }
-	li {line-height:1  margin-left:15px;}
-	mason {marin-top:100px; }
-</style>
 <body>
 	<div class="wrap">
 <%   
@@ -62,17 +51,46 @@
                     </select>
                 </div>
                 <div class="sub_main">
-            		<div class="proview" >
-						<ul id="mason">
-							<c:set var="num" value="${prolistList.size() }" />
-							<c:forEach items="${prolistList }" var="prolist" >
-							<li>
-							<p class="protit"><a href="./GetProlistCtrl?prolistid=${prolist.getProlistid() }"><img src="${prolist.getImg() }" alt="상품이미지" /></a></p>
-							<p><a href="./GetProlistCtrl?prolistid=${prolist.getProlistid() }">${prolist.getPname() }</a></p>
-							<p>남은수량: ${prolist.getCnt() }</p>
-							</li>		
-							</c:forEach>
-						</ul>
+            		<h3>답글 쓰기</h3>
+            		<div class="container">
+					    <form method="post" action="BoardReplyInsertCtrl?" name="boardForm">
+					    <input type="hidden" name="board_id" value="${u_id }">
+					    <input type="hidden" name="board_num" value="${board.getNum() }"/>
+					    <input type="hidden" name="board_re_ref" value="${board.getRe_ref() }"/>
+					    <input type="hidden" name="board_re_lev" value="${board.getRe_lev() }"/>
+					    <input type="hidden" name="board_re_seq" value="${board.getRe_seq() }"/>
+					    <table class="table">
+					        <tr>
+					            <td id="title">작성자</td>
+					            <td>${u_id }</td>
+					        </tr>
+					            <tr>
+					            <td id="title">
+					                제 목
+					            </td>
+					            <td>
+					                <input name="board_subject" type="text" size="70" maxlength="100" value=""/>
+					            </td>        
+					        </tr>
+					        <tr>
+					            <td id="title">
+					                내 용
+					            </td>
+					            <td>
+					                <textarea name="board_content" cols="72" rows="20">
+					                </textarea>            
+					            </td>        
+					        </tr>
+					 
+					        <tr align="center" valign="middle">
+					            <td colspan="5">
+					                <input type="reset" value="작성취소" class="btn btn-primary">
+					                <input type="submit" value="등록"  class="btn btn-primary">
+					                <input type="button" value="목록" onclick="javascript:history.go(-1)"  class="btn btn-primary">            
+					            </td>
+					        </tr>
+					    </table>    
+					    </form>
 					</div>
             	</div>
              

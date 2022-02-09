@@ -1,7 +1,3 @@
-/* tnb1, tnb2, head, header: 폴더 외부의 jsp 파일들이 사용한다.(join.jsp,login.jsp 등)
- * tnb11, tnb12, head2, header2: 폴더 내부(find,board 내에 있는 jsp 파일)에서 사용한다.  */
-
-
 
 /*회원 테이블 및 시퀀스*/
 
@@ -46,11 +42,11 @@ insert into issuecoupon values (issuecoupon_seq.nextval, 'A001', '크리스마�
 create sequence system.qna_seq increment by 1 start with 1 minvalue 1 maxvalue 999999 nocycle nocache;
 
 create table qna (qnaid int primary key, tit varchar2(200) not null, 
-con varchar2(500) not null, author varchar2(500) not null,
+con varchar2(500) not null, author varchar2(500) not null, visited int default 0, 
 pw int not null, regdate date default sysdate);
 
-insert into qna values (qna_seq.nextval, '안녕하세요', '내용1', 'hong11', 1234, sysdate)
-
+insert into qna values (qna_seq.nextval, '안녕하세요', '내용1', 'hong11', 0, 1234, sysdate)
+drop table qna
 /*제품목록 테이블 및 시퀀스*/
 
 create sequence system.prolist_seq increment by 1 start with 1 minvalue 1 maxvalue 999999 nocycle nocache;
@@ -107,6 +103,9 @@ oitem varchar2(500) not null, oitemid int not null, cnt int not null, validity i
 /* 답변형 게시판 테이블 및 시퀀스 */
 
 create sequence system.re_seq increment by 1 start with 1 minvalue 1 maxvalue 999999 nocycle nocache;
+
+-- 게시판 시퀀스
+create sequence BOARD_NUM; 
 
 CREATE TABLE board(
   board_num NUMBER NOT NULL PRIMARY KEY,

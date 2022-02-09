@@ -38,6 +38,7 @@ public class LoginCtrl extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		if (tm!=null) {
+			session.setAttribute("usertbid", tm.getUsertbid());
 			session.setAttribute("u_id", tm.getU_id());
 			session.setAttribute("uname", tm.getUname());
 			session.setAttribute("email", tm.getEmail());

@@ -6,22 +6,14 @@
 <%@ page import="com.shop.view.*" %>
 <!DOCTYPE html>
 <html>
-<title>여기에 제목 입력</title>
+<title>게시글 내용 보기</title>
+<style>
+
+</style>
 <head>
 <meta charset="UTF-8">
 	<%@ include file="../head.jsp" %>
 </head>
-<style>
-	body, html { width: 100%; }
-    ul { list-style: none; }
-    a { text-decoration: none; }  
-    .wrap { width: 100%; }
-    proview {margin:5 }
-	.proview p {text-align:center }
-	.proview a {display:inline }
-	li {line-height:1  margin-left:15px;}
-	mason {marin-top:100px; }
-</style>
 <body>
 	<div class="wrap">
 <%   
@@ -62,18 +54,60 @@
                     </select>
                 </div>
                 <div class="sub_main">
-            		<div class="proview" >
-						<ul id="mason">
-							<c:set var="num" value="${prolistList.size() }" />
-							<c:forEach items="${prolistList }" var="prolist" >
-							<li>
-							<p class="protit"><a href="./GetProlistCtrl?prolistid=${prolist.getProlistid() }"><img src="${prolist.getImg() }" alt="상품이미지" /></a></p>
-							<p><a href="./GetProlistCtrl?prolistid=${prolist.getProlistid() }">${prolist.getPname() }</a></p>
-							<p>남은수량: ${prolist.getCnt() }</p>
-							</li>		
-							</c:forEach>
-						</ul>
-					</div>
+            		<h3>test</h3>
+				    	<div class="container">
+					
+						<h2>게시판 글보기</h2>
+							<div class="content">
+							    <div id="board">
+							        <table id="detailBoard" class="table">
+							            <tr>
+							                <td id="title">작성일</td>
+							                <td>${board.getDate() }</td>
+							            </tr>
+							            <tr>
+							                <td id="title">작성자</td>
+							                <td>${board.getId() }</td>
+							            </tr>
+							            <tr>
+							                <td id="title">
+							                	제 목
+							                </td>
+							                <td>
+							                    ${board.getSubject() }
+							                </td>        
+							            </tr>
+							            <tr>
+							                <td id="title">
+							                   	 내 용
+							                </td>
+							                <td>
+							                    ${board.getContent() }
+							                </td>        
+							            </tr>
+							            <tr>
+							                <td id="title">
+							                   	 첨부파일
+							                </td>
+							                <td>
+							                    <a href='${board.getFile() }'>${board.getFile() }</a>
+							                </td>    
+							            </tr>
+							    
+							            <tr align="center" valign="middle">
+							                <td colspan="5">
+							                    <a href="./GetBoardUpdateFormCtrl?num=${board.getNum() }" class="btn btn-primary">수정</a>
+							                    <a href="./DeleteBoardCtrl?num=${board.getNum() }" class="btn btn-primary">삭제</a>
+							                    <a href="./GetBoardReplyFormCtrl?num=${board.getNum() }" class="btn btn-primary">답글</a>    
+							                    <input type="button" value="목록" 
+							                        onclick="javascript:location.href='GetBoardListCtrl?page=${pageNum }'" class="btn btn-primary">            
+							                </td>
+							            </tr>
+							        </table>
+							    </div>
+							</div>
+					
+						</div>	
             	</div>
              
                 <script>
@@ -86,7 +120,6 @@
                 });
                 </script>  
             </div>
-            
             <section class="left_con">
                 <aside class="sidebar">
                     <nav class="lnb">

@@ -24,7 +24,7 @@ public class InsertBoardCtrl extends HttpServlet {
 		try {
 		//파일업로드
 		//MultipartRequest multi = new MultipartRequest, saveDirectory, fileSize, "utf-8", new DefaultFileRenamePolicy());
-		String saveDirectory = "D:\\ssj\\jsp2\\project2\\WebContent\\img";
+		String saveDirectory = "C:\\kks\\jsp\\project2\\WebContent\\boardfiles";
 		MultipartRequest multi = new MultipartRequest(request, saveDirectory, fileSize, "utf-8"); //덮어쓰기
 		
         // 파일이름 가져오기
@@ -38,10 +38,10 @@ public class InsertBoardCtrl extends HttpServlet {
 		BoardDAO dao = new BoardDAO();
 		BoardVO board = new BoardVO();
 		
-	      board.setNum(Integer.parseInt(request.getParameter("num"))); // 시퀀스값 가져와 세팅
-          board.setId(multi.getParameter("id")); // 히든값
-          board.setSubject(multi.getParameter("subject"));
-          board.setContent(multi.getParameter("content"));
+		  board.setNum(dao.getSeq()); // 시퀀스값 가져와 세팅
+          board.setId(multi.getParameter("board_id")); // 히든값
+          board.setSubject(multi.getParameter("board_subject"));
+          board.setContent(multi.getParameter("board_content"));
           board.setFile(multi.getParameter("file"));
           
           int cnt = dao.insertBoard(board);

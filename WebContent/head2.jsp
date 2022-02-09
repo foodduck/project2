@@ -26,6 +26,8 @@
     <link rel="stylesheet"href="../css/reset2.css">
     <link rel="stylesheet"href="../css/normalize.css">
     <link rel="stylesheet"href="../css/common.css">
+    <link rel="stylesheet" href="../css/datatables.min.css" />
+	<script src="../js/datatables.min.js"></script>
     <!-- 합쳐지고 최소화된 최신 CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 	

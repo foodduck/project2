@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
     <!-- 파비콘 설정 -->
     <link rel="shortcut icon" href="./img/favicon.png">
     <link rel="apple-touch-icon" href="./img/favicon.png" sizes="48x48">
@@ -26,6 +27,8 @@
     <link rel="stylesheet"href="./css/reset2.css">
     <link rel="stylesheet"href="./css/normalize.css">
     <link rel="stylesheet"href="./css/common.css">
+    <link rel="stylesheet" href="./css/datatables.min.css" />
+    <script src="./js/datatables.min.js"></script>
     <!-- 합쳐지고 최소화된 최신 CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 

@@ -1,31 +1,34 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="com.shop.model.*" %>    
-<%@ page import="com.shop.controller.*" %>
-<%@ page import="com.shop.biz.*" %>
-<%@ page import="com.shop.view.*" %>
+<%@ page import = "java.sql.*" %>
+<%@ page import = "java.util.ArrayList" %>    
+<%@ page import = "com.shop.model.*" %>    
+<%@ page import = "com.shop.biz.*" %>   
+<%@ page import = "com.shop.view.*" %>        
+
+<%
+	BoardVO board = (BoardVO) request.getAttribute("board");
+%>
+
 <!DOCTYPE html>
 <html>
-<title>여기에 제목 입력</title>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>답변형 게시판 글쓰기</title>
 <head>
 <meta charset="UTF-8">
 	<%@ include file="../head.jsp" %>
 </head>
-<style>
-	body, html { width: 100%; }
-    ul { list-style: none; }
-    a { text-decoration: none; }  
-    .wrap { width: 100%; }
-    proview {margin:5 }
-	.proview p {text-align:center }
-	.proview a {display:inline }
-	li {line-height:1  margin-left:15px;}
-	mason {marin-top:100px; }
-</style>
 <body>
 	<div class="wrap">
 <%   
 		String u_id = (String) session.getAttribute("u_id");
+		//회원이 자신이 쓴 글이 아니라면 글 목록으로 돌아감
+	/* 	if ( (u_id!="admin") && (u_id!= board.getId()) ) {
+			response.sendRedirect("GetBoardListCtrl");
+		} */
 		if (u_id!=null) {
 %>
 			<%@ include file='../tnb2.jsp'%>
@@ -62,18 +65,36 @@
                     </select>
                 </div>
                 <div class="sub_main">
-            		<div class="proview" >
-						<ul id="mason">
-							<c:set var="num" value="${prolistList.size() }" />
-							<c:forEach items="${prolistList }" var="prolist" >
-							<li>
-							<p class="protit"><a href="./GetProlistCtrl?prolistid=${prolist.getProlistid() }"><img src="${prolist.getImg() }" alt="상품이미지" /></a></p>
-							<p><a href="./GetProlistCtrl?prolistid=${prolist.getProlistid() }">${prolist.getPname() }</a></p>
-							<p>남은수량: ${prolist.getCnt() }</p>
-							</li>		
-							</c:forEach>
-						</ul>
-					</div>
+            		<h3>글 쓰기</h3>
+            		<form method="post" action="./UpdateBoardCtrl" name="boardForm" enctype="multipart/form-data">
+					    <input type="hidden" name="board_id" value="${u_id }">
+					    <input type="hidden" name="board_num" value="${board.getNum()}">
+					    <table class="table">
+					        <tr>
+					            <td id="title">작성자</td>
+					            <td><input type="text" name="result_name" value="${u_id }" readonly /></td>
+					        </tr>
+					            <tr>
+					            <td id="title">제 목</td>
+					            <td><input name="board_subject" type="text" size="70" maxlength="100" value="${board.getSubject() }"/></td>        
+					        </tr>
+					        <tr>
+					            <td id="title">내 용</td>
+					            <td><textarea name="board_content" cols="72" rows="20" >${board.getContent() }</textarea></td>        
+					        </tr>
+					        <tr>
+					            <td id="title">파일첨부</td>
+					            <td><input type="file" name="board_file" value="${board.getFile() }"/></td>    
+					        </tr>
+					        <tr align="center" valign="middle">
+					            <td colspan="5">
+					                <input type="reset" value="작성취소" class="btn btn-primary">
+					                <input type="submit" value="등록" class="btn btn-primary">
+					                <input type="button" value="목록" onclick="javascript:history.go(-1)" class="btn btn-primary">            
+					            </td>
+					        </tr>
+					    </table>    
+					</form>
             	</div>
              
                 <script>
@@ -109,4 +130,3 @@
 		<%@include file='../footer.jsp' %>
 	</div>
 </body>
-</html>

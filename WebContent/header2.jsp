@@ -63,7 +63,7 @@
                         <a href="" class="dp1">커뮤니티</a>
                         <ul class="sub">
                             <li><a href="">공지사항</a></li>
-                            <li><a href="">회원게시판</a></li>
+                            <li><a href="../GetBoardListCtrl">회원게시판</a></li>
                             <li><a href=""></a></li>
                             <li><a href=""></a></li>
                             <li><a href=""></a></li>
