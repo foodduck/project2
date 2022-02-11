@@ -49,7 +49,7 @@ display:none; }
 .vs .img_box { width: 300%; } 
 .vs .img_box li { width: 33.3333%; float:left;  }
 .vs .img_box li a {display:block; position: relative; }
-.vs .img_box li .vs_img { display:block; width: 100%; height:auto; }
+.vs .img_box li .vs_img { display:block; width: 100%; height:300px;}
 .vs .tit_box { width: 100%; height:100%; position:absolute; top: 0px; left: 0px; z-index:5; }
 
 
